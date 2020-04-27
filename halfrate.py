@@ -13,7 +13,7 @@ filter_coeffs = filtercoefficient.filtercoeff()
 filtered_sine = signal.lfilter(filter_coeffs, [1], sine_wave)
 #Decimate the data
 resample_sine = signal.decimate(filtered_sine,2)
-#recast
+#Recast to int16, not sure if need this or not
 resample_sine = resample_sine.astype(np.int16)
 
 write("halfsine.wav", 24000, resample_sine)
